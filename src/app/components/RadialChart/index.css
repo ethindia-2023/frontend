@@ -1,0 +1,40 @@
+.chart-card{
+    display:flex;
+    flex-direction: row;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+width: fit-content;
+border-radius:0.5rem ;
+padding-left: 2rem;
+padding-right: 2rem;
+margin: 1rem;
+}
+.values{
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: auto;
+}
+.radial-name{
+    font-size: 1.5rem;
+    color: #595882;
+    margin: 0%;
+
+}
+.radial-value{
+font-size: 2.5rem;
+margin: 0%;
+
+}
+.chart{
+    display: inline-block;
+    margin: auto;
+}
+/* p{
+    margin: 0%;
+} */
+.device{
+    margin-top: 1rem;
+    font-weight: 450;
+}

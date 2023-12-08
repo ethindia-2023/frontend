@@ -1,7 +1,8 @@
 import "./index.css";
-
+import RadialCharts from "app/components/RadialChart";
 const App: React.FC = () => {
-  return <div className="app">Hello</div>;
+  const chartParams:number[]= [100, 200, 300];
+  return <div className="app"><RadialCharts value={chartParams}/></div>;
 };
 
 export default App;

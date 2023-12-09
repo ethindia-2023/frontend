@@ -1,5 +1,6 @@
 import { ApexOptions } from "apexcharts";
 import Chart from "react-apexcharts";
+import "./index.css";
 
 export type SplineChartProps = {
   series: SeriesData[];
@@ -71,7 +72,13 @@ const SplineCharts: React.FC<SplineChartProps> = (props: SplineChartProps) => {
   };
 
   return (
-    <Chart options={apexOptions} series={series} height={height} type="area" />
+    <Chart
+      className="spline-chart"
+      options={apexOptions}
+      series={series}
+      height={height}
+      type="area"
+    />
   );
 };
 

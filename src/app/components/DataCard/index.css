@@ -9,27 +9,29 @@
 }
 .prop-name{
     color:#595882;
-    font-size: 1.25rem;
+    font-size: 1.4rem;
+    font-weight: 500;
 }
 .icon-block{
     width:4.25rem;
     height: 4.25rem;
     padding: auto;
     margin-bottom: 1.75rem;
-    background-color: rgba(146, 204, 243, 0.3); ;
-    display: inline-flex;
+    display: flex;
 }
 .data-card{
-    margin: 1rem;
-    width: 9rem;
+    margin: 0 1rem;
+    /* width: 9rem; */
     padding: 1.5rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
     display: inline-block;
     font-weight: 450;
+    background-color: white;
 }
 .border-round{
     border-radius: 0.75rem;
 }
 .icon{
     margin: auto;
+    font-size: x-large;
 }

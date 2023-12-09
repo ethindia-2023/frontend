@@ -39,7 +39,6 @@ const App: React.FC = () => {
       <div className="app-content">
         {/* <AdminDash rolesArray={roles} /> */}
         <RouterProvider router={AppRouter} />
-        <Dashboard />
       </div>
     </div>
   );

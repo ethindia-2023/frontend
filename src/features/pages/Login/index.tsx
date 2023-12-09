@@ -11,7 +11,7 @@ interface AuthKitSignInData {
   safes?: string[];
 }
 
-const App: React.FC = () => { 
+const Login: React.FC = () => { 
   const [safeAuthPack, setSafeAuthPack] = useState<SafeAuthPack | null>(null);
   const [authKitSignData, setAuthKitSignData] = useState<AuthKitSignInData | null>(null);
 
@@ -49,4 +49,4 @@ const App: React.FC = () => {
   )
 };
 
-export default App;
+export default Login;

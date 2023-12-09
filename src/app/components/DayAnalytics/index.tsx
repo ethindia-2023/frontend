@@ -7,12 +7,13 @@ export type DayAnalyticsProps = {
   today: number;
   expected: number;
   label: string;
+  color: string;
 };
 
 const DayAnalytics: React.FC<DayAnalyticsProps> = (
   props: DayAnalyticsProps
 ) => {
-  const { today, expected, label } = props;
+  const { today, expected, label, color } = props;
 
   const percentage = parseInt(((today / expected) * 100).toFixed(0));
 
@@ -32,7 +33,7 @@ const DayAnalytics: React.FC<DayAnalyticsProps> = (
       },
     },
     labels: [label],
-    colors: ["#9035FE"],
+    colors: [color],
   };
   const chartSeries: ApexNonAxisChartSeries = [percentage];
 

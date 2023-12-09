@@ -69,6 +69,12 @@ const SplineCharts: React.FC<SplineChartProps> = (props: SplineChartProps) => {
         },
       },
     },
+    grid: {
+      show: false,
+    },
+    yaxis: {
+      show: false,
+    },
   };
 
   return (

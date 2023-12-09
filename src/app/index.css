@@ -3,12 +3,5 @@
   background-color: #f6f8fd;
   margin: 0;
   display: flex;
-}
-
-.app-content {
-  display: flex;
-  flex: 1;
-  flex-flow: row nowrap;
-  gap: 1rem;
-  padding: 2rem;
+  height: 100vh;
 }

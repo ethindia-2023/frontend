@@ -12,7 +12,10 @@ import GraphForm, {
   GraphFormData,
   GraphFormProps,
 } from "app/components/GraphForm";
+import { IoMdPulse } from "react-icons/io";
 import { MdOutlineAutoGraph } from "react-icons/md";
+import { LuTimerReset } from "react-icons/lu";
+import { TbCloudDataConnection } from "react-icons/tb";
 
 const Dashboard: React.FC = () => {
   const barInfoCardProps: BarInfoCardProps = {
@@ -76,48 +79,50 @@ const Dashboard: React.FC = () => {
   const datCardPropsList: DataCardProps[] = [
     {
       property: "Users",
-      value: 200,
+      value: "72.6k",
       change: 25,
       icon: <LuUsers />,
       iconBackgroundColor: "#EAF1FE",
       iconColor: "#3C79FE",
     },
     {
-      property: "Users",
-      value: 200,
-      change: 25,
-      icon: <LuUsers />,
-      iconBackgroundColor: "#EAF1FE",
-      iconColor: "#3C79FE",
+      property: "Sessions",
+      value: "87.2k",
+      change: 28,
+      icon: <TbCloudDataConnection />,
+      iconBackgroundColor: "#FEF1EC",
+      iconColor: "#F26E4C",
     },
     {
-      property: "Users",
-      value: 200,
-      change: 25,
-      icon: <LuUsers />,
-      iconBackgroundColor: "#EAF1FE",
-      iconColor: "#3C79FE",
+      property: "Bounce Rate",
+      value: "26.3%",
+      change: -47,
+      icon: <IoMdPulse />,
+      iconBackgroundColor: "#ECE8FF",
+      iconColor: "#4422F9",
     },
     {
-      property: "Users",
-      value: 200,
-      change: 25,
-      icon: <LuUsers />,
-      iconBackgroundColor: "#EAF1FE",
-      iconColor: "#3C79FE",
+      property: "Session Duration",
+      value: "2m 18s",
+      change: 13,
+      icon: <LuTimerReset />,
+      iconBackgroundColor: "#E8FBF7",
+      iconColor: "#24D7A4",
     },
   ];
 
   const dayAnalysisPropsList: DayAnalyticsProps[] = [
     {
       label: "Users",
-      today: 200,
-      expected: 500,
+      today: 5461,
+      expected: 8085,
+      color: "#553AFF",
     },
     {
-      label: "Users",
-      today: 200,
-      expected: 500,
+      label: "Gas fee",
+      today: 120,
+      expected: 140,
+      color: "#FF704B",
     },
   ];
 
@@ -150,16 +155,16 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
-      <Modal
-        children={<GraphForm {...graphProps} />}
-        isOpen={modalOpen}
-        modalDescription="create graph from passed data"
-        modalTitle="Create new Custom Graph"
-        modalIcon={<MdOutlineAutoGraph />}
-        onClose={onModelClose}
-        hasCloseBtn={true}
-      />
       <div className="app-left-pane">
+        <Modal
+          children={<GraphForm {...graphProps} />}
+          isOpen={modalOpen}
+          modalDescription="create graph from passed data"
+          modalTitle="Create new Custom Graph"
+          modalIcon={<MdOutlineAutoGraph />}
+          onClose={onModelClose}
+          hasCloseBtn={true}
+        />
         <SplineCharts {...splineProps} />
         <div className="data-card-container">
           {datCardPropsList.map((props: DataCardProps) => (

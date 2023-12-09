@@ -3,7 +3,7 @@ import "./index.css";
 
 export type DataCardProps = {
   property: string;
-  value: number;
+  value: string;
   change: number;
   icon: ReactNode;
   iconColor: string;
@@ -23,7 +23,9 @@ const DataCard: React.FC<DataCardProps> = (props: DataCardProps) => {
       </div>
       <p className="prop-name">{props.property}</p>
       <p className="value">{props.value}</p>
-      <p className="change">{props.change}%</p>
+      <p className="change">
+        {`${props.change > 0 ? "+" : ""}${props.change}`}%
+      </p>
     </div>
   );
 };

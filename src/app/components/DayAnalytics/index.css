@@ -10,7 +10,6 @@
 }
 
 .day-data {
-  height: inherit;
   display: flex;
   flex-direction: column;
   margin-top: auto;
@@ -19,5 +18,12 @@
 }
 .day-name {
   color: #595882;
-  margin: auto;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.day-value{
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
 }

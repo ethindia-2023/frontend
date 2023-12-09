@@ -6,7 +6,7 @@ import { LuUsers } from "react-icons/lu";
 import DayAnalytics, { DayAnalyticsProps } from "app/components/DayAnalytics";
 import RadialCharts, { RadialChartsProps } from "app/components/RadialChart";
 import Button from "app/components/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "app/components/Modal";
 import GraphForm, {
   GraphFormData,
@@ -17,27 +17,56 @@ import { MdOutlineAutoGraph } from "react-icons/md";
 import { LuTimerReset } from "react-icons/lu";
 import { TbCloudDataConnection } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Dashboard: React.FC = () => {
+  const [barDataList, setBarDataList] = useState<
+    BarInfoCardProps["barDataList"]
+  >([
+    {
+      label: "Total Gas",
+      valuePercentage: 0,
+    },
+    {
+      label: "Total Tokens",
+      valuePercentage: 0,
+    },
+    {
+      label: "Total Revenue",
+      valuePercentage: 0,
+    },
+  ]);
+  useEffect(() => {
+    axios.get("http://127.0.0.1:3000/total24value").then((res) => {
+      const total = res.data[0].totalGas + 1.1 * res.data[0].total;
+      setBarDataList([
+        {
+          label: "Total Gas",
+          valuePercentage: parseFloat(
+            ((res.data[0].totalGas / total) * 100).toPrecision(1)
+          ),
+        },
+        {
+          label: "Total Tokens",
+          valuePercentage: parseFloat(
+            ((res.data[0].total / total) * 100).toPrecision(1)
+          ),
+        },
+        {
+          label: "Total Revenue",
+          valuePercentage: parseFloat(
+            (((0.1 * res.data[0].total) / total) * 100).toPrecision(1)
+          ),
+        },
+      ]);
+    });
+  }, []);
   const barInfoCardProps: BarInfoCardProps = {
-    title: "Sessions By Device",
-    labelName: "Channel",
-    barLabelName: "Traffic (%)",
+    title: "Daily Volume at a Glance",
+    labelName: "Metric",
+    barLabelName: "Tokens (%)",
     percentageLabelName: "Value",
-    barDataList: [
-      {
-        label: "Direct",
-        valuePercentage: 23,
-      },
-      {
-        label: "Direct",
-        valuePercentage: 56,
-      },
-      {
-        label: "Direct",
-        valuePercentage: 12,
-      },
-    ],
+    barDataList: barDataList,
   };
 
   let data = [];

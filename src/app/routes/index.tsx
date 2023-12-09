@@ -2,6 +2,7 @@ import ErrorLayout from "features/ErrorLayout";
 import RootLayout from "features/RootLayout";
 import AdminDash from "features/pages/AdminPage";
 import Dashboard from "features/pages/Dashboard";
+import Login from "features/pages/Login";
 import {
   Route,
   createBrowserRouter,
@@ -24,6 +25,7 @@ const AppRouter = createBrowserRouter(
       <Route errorElement={<ErrorLayout />}>
         <Route index element={<Dashboard />} />
         <Route path="admin" element={<AdminDash rolesArray={roles} />} />
+        <Route path="login" element={<Login />} />
       </Route>
     </Route>
   )

@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import Button from "app/components/Button";
-import "./index.css"
+import "./index.css";
 export type ProjectFormProps = {
   onSubmit?: (formData: ProjectFormData) => void;
 };
 
 export type ProjectFormData = {
-  name?: string;
-  description?: string;
+  projName: string;
+  description: string;
 };
 
-let formData: ProjectFormData = {};
+let formData: ProjectFormData = {
+  projName: "",
+  description: "",
+};
 
 const ProjectForm: React.FC<ProjectFormProps> = (props: ProjectFormProps) => {
   const { onSubmit } = props;
@@ -19,7 +22,7 @@ const ProjectForm: React.FC<ProjectFormProps> = (props: ProjectFormProps) => {
   const projectSubmitHandler = () => {
     if (
       formData === undefined ||
-      formData.name === undefined ||
+      formData.projName === undefined ||
       formData.description === undefined
     ) {
       setError("Some of the fields are empty");
@@ -38,7 +41,7 @@ const ProjectForm: React.FC<ProjectFormProps> = (props: ProjectFormProps) => {
         placeholder="Project Name"
         onChange={(e) => {
           setError(null);
-          formData.name = e.target.value;
+          formData.projName = e.target.value;
         }}
       />
       <input

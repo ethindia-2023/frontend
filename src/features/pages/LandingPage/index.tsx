@@ -4,7 +4,6 @@ import Button from "../../../app/components/Button";
 import ProjectCard from "../../../app/components/ProjectCard";
 import ProjectForm, {
   ProjectFormData,
-  ProjectFormProps,
 } from "../../../app/components/ProjectForm";
 import {
   FaFacebook,
@@ -19,17 +18,8 @@ import {
 } from "react-icons/fa";
 import { AiOutlineFileAdd } from "react-icons/ai";
 import Modal from "../../../app/components/Modal";
+
 const LandingPage: React.FC = () => {
-  const cardData = Array.from({ length: 9 }, (_, index) => ({
-    projName: `Project ${index + 1}`,
-    description: `Description ${index + 1}`,
-  }));
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
-
-  const onModelClose = () => {
-    setModalOpen(false);
-  };
-
   const icons = [
     { icon: <FaFacebook />, color: "#4267B2" },
     { icon: <FaTwitter />, color: "#1DA1F2" },
@@ -42,19 +32,59 @@ const LandingPage: React.FC = () => {
     { icon: <FaReddit />, color: "#FF4500" },
   ];
 
+  const [cardData, setCardData] = useState(
+    Array.from({ length: 9 }, (_, index) => ({
+      name: `Project ${index + 1}`,
+      description: `Description ${index + 1}`,
+      icon: icons[index].icon,
+      color: icons[index].color,
+    }))
+  );
+
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+
+  const onModelClose = () => {
+    setModalOpen(false);
+  };
+
+  const deleteProject = (index: number) => {
+    const updatedCardData = cardData.filter((_, i) => i !== index);
+    setCardData(updatedCardData);
+  };
+
+  const addProject = (formData: ProjectFormData) => {
+    const randomIndex = getRandomInteger();
+    const newProject = {
+      name: formData.projName || "",
+      description: formData.description || "",
+      icon: icons[randomIndex].icon,
+      color: icons[randomIndex].color,
+    };
+
+    setCardData((prevCardData) => [...prevCardData, newProject]);
+    setModalOpen(false);
+    console.log("new project", newProject);
+  };
+
+  const getRandomInteger = () => {
+    return Math.floor(Math.random() * 9);
+  };
+
   const cards = cardData.map((card, index) => (
     <ProjectCard
       key={index}
-      projName={card.projName}
+      projName={card.name}
       description={card.description}
-      icon={icons[index].icon}
-      color={icons[index].color}
+      icon={card.icon}
+      color={card.color}
+      onDelete={() => deleteProject(index)}
     />
   ));
+
   return (
     <div className="proj-page">
       <Modal
-        children={<ProjectForm />}
+        children={<ProjectForm onSubmit={addProject} />}
         isOpen={modalOpen}
         modalDescription=""
         modalTitle="Create new Project"

@@ -6,8 +6,14 @@ import {
   SafeAuthInitOptions,
 } from '@safe-global/auth-kit'
 
+interface AuthKitSignInData {
+  eoa: string;
+  safes?: string[];
+}
+
 const App: React.FC = () => { 
   const [safeAuthPack, setSafeAuthPack] = useState<SafeAuthPack | null>(null);
+  const [authKitSignData, setAuthKitSignData] = useState<AuthKitSignInData | null>(null);
 
   const initialize = async () => {
     const safeAuthInitOptions: SafeAuthInitOptions = {
@@ -30,6 +36,9 @@ const App: React.FC = () => {
 
   const login = async () => { 
     const authKitSignData = await safeAuthPack!.signIn();
+    if (authKitSignData !== null) {
+      setAuthKitSignData(authKitSignData);
+    }
     console.log(authKitSignData);
   }
 

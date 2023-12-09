@@ -1,0 +1,19 @@
+.app {
+    text-align: center;
+    background-color: #F6F8FD;
+    margin: 0;
+}
+
+.app-content {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+}
+
+.app-left-pane {
+    flex: 1.8;
+}
+
+.app-right-pane {
+    flex: 1;
+}

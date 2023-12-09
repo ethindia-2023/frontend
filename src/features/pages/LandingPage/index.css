@@ -1,0 +1,18 @@
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.add-proj-btn {
+  align-self: flex-end; /* Align the button to the end of the flex container (right in a column layout) */
+  margin: 1rem;
+  width: fit-content;
+}
+
+.proj-page {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end; /* Align the child elements to the end of the flex container (right in a column layout) */
+}

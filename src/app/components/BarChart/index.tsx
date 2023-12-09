@@ -1,8 +1,9 @@
 import { ApexOptions } from "apexcharts";
 import Chart from "react-apexcharts";
+import { SeriesData } from "../SplineChart";
 import "./index.css";
 
-export type SplineChartProps = {
+export type BarChartProps = {
   series: SeriesData[];
   height?: number | string;
   width?: number | string;
@@ -10,17 +11,9 @@ export type SplineChartProps = {
   markerRadius?: number;
   strokeWidth?: number;
   strokeColors?: string[];
-  isSpline?: boolean;
 };
 
-export type SeriesData = {
-  data: { x: number | string; y: number; strokeColor?: string }[];
-  name: string;
-  color?: string;
-  fill?: ApexFill;
-};
-
-const SplineCharts: React.FC<SplineChartProps> = (props: SplineChartProps) => {
+const BarChart: React.FC<BarChartProps> = (props: BarChartProps) => {
   const {
     series,
     height,
@@ -29,11 +22,10 @@ const SplineCharts: React.FC<SplineChartProps> = (props: SplineChartProps) => {
     markerRadius,
     strokeWidth,
     strokeColors,
-    isSpline = true,
   } = props;
-
   const apexOptions: ApexOptions = {
     chart: {
+      type: "bar",
       zoom: {
         enabled: false,
         autoScaleYaxis: true,
@@ -44,27 +36,17 @@ const SplineCharts: React.FC<SplineChartProps> = (props: SplineChartProps) => {
       onClick: onMarkerClick,
       radius: markerRadius,
     },
+    plotOptions: {
+      bar: {
+        dataLabels: {
+          position: "top", // top, center, bottom
+        },
+      },
+    },
     dataLabels: {
       enabled: false,
     },
-    stroke: {
-      width: strokeWidth,
-      curve: isSpline ? "smooth" : "straight",
-      fill: {
-        type: "solid",
-        colors: strokeColors,
-      },
-    },
-    fill: {
-      type: "gradient",
-      gradient: {
-        shadeIntensity: 1,
-        inverseColors: false,
-        opacityFrom: 0.6,
-        opacityTo: 0.3,
-        stops: [0, 80, 100],
-      },
-    },
+
     xaxis: {
       type: "datetime",
       labels: {
@@ -83,14 +65,14 @@ const SplineCharts: React.FC<SplineChartProps> = (props: SplineChartProps) => {
 
   return (
     <Chart
-      className="spline-chart"
+      className="bar-chart"
       options={apexOptions}
       series={series}
       height={height ?? "100%"}
       width={width ?? "100%"}
-      type="area"
+      type="bar"
     />
   );
 };
 
-export default SplineCharts;
+export default BarChart;

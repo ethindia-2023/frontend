@@ -16,6 +16,7 @@ import { IoMdPulse } from "react-icons/io";
 import { MdOutlineAutoGraph } from "react-icons/md";
 import { LuTimerReset } from "react-icons/lu";
 import { TbCloudDataConnection } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard: React.FC = () => {
   const barInfoCardProps: BarInfoCardProps = {
@@ -46,7 +47,6 @@ const Dashboard: React.FC = () => {
       x: new Date(2023, 12, ind).toDateString(),
       y: Math.random() * 11,
     });
-    console.log(data);
   }
 
   const splineProps: SplineChartProps = {
@@ -145,11 +145,18 @@ const Dashboard: React.FC = () => {
     });
   }
 
+  const navigate = useNavigate();
+
   const graphProps: GraphFormProps = {
     dataFields: ["Gas fees", "Transactions", "Count"],
     graphOptions: ["Bar Chart", "Spline Chart", "Line Chart"],
     onSubmit: (formData: GraphFormData) => {
       console.log("after submitting", JSON.stringify(formData));
+      navigate("/custom-graph", {
+        state: {
+          data: formData,
+        },
+      });
     },
   };
 

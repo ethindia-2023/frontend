@@ -5,6 +5,10 @@ import DataCard, { DataCardProps } from "app/components/DataCard";
 import { LuUsers } from "react-icons/lu";
 import DayAnalytics, { DayAnalyticsProps } from "app/components/DayAnalytics";
 import RadialCharts, { RadialChartsProps } from "app/components/RadialChart";
+import AppBar, { AppBarProps } from "app/components/AppBar";
+import { MdHome } from "react-icons/md";
+import { FaWallet } from "react-icons/fa";
+import { RiDatabase2Line } from "react-icons/ri";
 
 const App: React.FC = () => {
   const barInfoCardProps: BarInfoCardProps = {
@@ -117,24 +121,44 @@ const App: React.FC = () => {
     value: [20, 70, 10],
   };
 
+  const appBarProps: AppBarProps = {
+    items: [
+      {
+        icon: <MdHome />,
+        label: "Home",
+      },
+      {
+        icon: <FaWallet />,
+        label: "Wallet",
+      },
+      {
+        icon: <RiDatabase2Line />,
+        label: "Database",
+      },
+    ],
+  };
+
   return (
-    <div className="app-content">
-      <div className="app-left-pane">
-        <SplineCharts {...splineProps} />
-        <div className="data-card-container">
-          {datCardPropsList.map((props: DataCardProps) => (
-            <DataCard {...props} />
-          ))}
+    <div className="app">
+      <AppBar {...appBarProps} />
+      <div className="app-content">
+        <div className="app-left-pane">
+          <SplineCharts {...splineProps} />
+          <div className="data-card-container">
+            {datCardPropsList.map((props: DataCardProps) => (
+              <DataCard {...props} />
+            ))}
+          </div>
+          <div className="day-analytic-card-container">
+            {dayAnalysisPropsList.map((props: DayAnalyticsProps) => (
+              <DayAnalytics {...props} />
+            ))}
+          </div>
         </div>
-        <div className="day-analytic-card-container">
-          {dayAnalysisPropsList.map((props: DayAnalyticsProps) => (
-            <DayAnalytics {...props} />
-          ))}
+        <div className="app-right-pane">
+          <RadialCharts {...radialChartProps} />
+          <BarInfoCard {...barInfoCardProps} />
         </div>
-      </div>
-      <div className="app-right-pane">
-        <RadialCharts {...radialChartProps} />
-        <BarInfoCard {...barInfoCardProps} />
       </div>
     </div>
   );

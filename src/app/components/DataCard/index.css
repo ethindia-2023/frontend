@@ -20,8 +20,6 @@
     display: flex;
 }
 .data-card{
-    margin: 0 1rem;
-    /* width: 9rem; */
     padding: 1.5rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
     display: inline-block;

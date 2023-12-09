@@ -1,38 +1,38 @@
-import React, { useState } from 'react';
-import ListItem from '../../../app/components/ListItem';
-import './index.css';
-import Dropdown, { Option } from 'react-dropdown';
-import 'react-dropdown/style.css';
+import React, { useState } from "react";
+import ListItem from "../../../app/components/ListItem";
+import "./index.css";
+import Dropdown, { Option } from "react-dropdown";
+import "react-dropdown/style.css";
 
-interface User {
+export type User = {
   name: string;
   role: string;
-}
-interface AdminDashProps {
+};
+
+export type AdminDashProps = {
   rolesArray: string[];
-}
+};
 
 const AdminDash: React.FC<AdminDashProps> = (props) => {
-    const [usersData, setUsers] = useState({
-  1: { name: 'John Doe', role: 'Admin' },
-  2: { name: 'Jane Doe', role: 'Developer' },
-});
+  const [usersData, setUsers] = useState({
+    1: { name: "John Doe", role: "Admin" },
+    2: { name: "Jane Doe", role: "Developer" },
+  });
 
+  const onAddUser = (newUser: User) => {
+    const newUserId = Object.keys(usersData).length + 1;
 
-const onAddUser = (newUser:User) => {
-  const newUserId = Object.keys(usersData).length + 1;
-
-  setUsers((prevUsers) => ({
-    ...prevUsers,
-    [newUserId]: newUser,
-  }));
-};
-let roles=props.rolesArray
+    setUsers((prevUsers) => ({
+      ...prevUsers,
+      [newUserId]: newUser,
+    }));
+  };
+  let roles = props.rolesArray;
 
   const userList = Object.values(usersData);
 
-  const [role, setRole] = useState<string>('Developer');
-  const [newUserName, setNewUserName] = useState<string>('');
+  const [role, setRole] = useState<string>("Developer");
+  const [newUserName, setNewUserName] = useState<string>("");
 
   const handleDropdownChange = (selectedOption: Option) => {
     setRole(selectedOption.value as string);
@@ -43,8 +43,8 @@ let roles=props.rolesArray
   };
 
   const addUser = () => {
-    if (newUserName.trim() === '') {
-      alert('Please enter a name for the new user.');
+    if (newUserName.trim() === "") {
+      alert("Please enter a name for the new user.");
       return;
     }
 
@@ -58,12 +58,12 @@ let roles=props.rolesArray
     // If it fails, write code to remove the user from the list
 
     // Reset input fields
-    setNewUserName('');
-    setRole('Developer');
+    setNewUserName("");
+    setRole("Developer");
   };
 
   return (
-    <div className='admin-dash'>
+    <div className="admin-dash">
       <div className="add-user">
         <input
           placeholder="Enter name of User"
@@ -98,4 +98,3 @@ let roles=props.rolesArray
 };
 
 export default AdminDash;
-

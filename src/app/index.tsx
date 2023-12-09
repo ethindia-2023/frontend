@@ -36,7 +36,8 @@ const App: React.FC = () => {
     <div className="app">
       <AppBar {...appBarProps} />
       <div className="app-content">
-        <AdminDash rolesArray={roles} />
+        {/* <AdminDash rolesArray={roles} /> */}
+        <Dashboard />
       </div>
     </div>
   );

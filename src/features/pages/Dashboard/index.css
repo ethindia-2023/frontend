@@ -26,3 +26,35 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
+
+.custom-graph-section{
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 1rem;
+    text-align: start;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-graph-section-title{
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.custom-graph-section-content{
+    display: flex;
+    flex: 0.8;
+    flex-flow: column nowrap;
+}
+
+.custom-graph-section-description{
+    color: #B6BCCC;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.custom-graph-button{
+    flex: 0.2;
+}

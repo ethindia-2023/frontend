@@ -1,0 +1,12 @@
+.graph-container{
+    align-self: stretch;
+    flex: 1;
+    position: relative;
+    padding: 0 20%;
+}
+
+.graph-title{
+    margin: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+}

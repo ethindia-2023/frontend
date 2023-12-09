@@ -1,0 +1,78 @@
+.editor-page-container{
+    display: flex;
+    flex-flow: column nowrap;
+    align-self: stretch;
+    flex: 1;
+}
+
+.editor-panel{
+    height: 100%;
+    background-color: #F7F6F9;
+    font-size: 2rem;
+}
+
+.editor-page-run-container{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+}
+
+.editor-page-dropdown{
+    padding: 0.5rem;
+}
+
+.editor-page-header{
+    flex: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    background-color: #E8EAF0;
+    font-size: 1.2rem;
+}
+
+.editor-page-header-text{
+    padding: 0.5rem 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.editor-run-text{
+    background-color: #0E9AE4;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: white;
+    
+}
+
+.editor-page-content-container{
+    flex: 1;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.editor-page-content-container > *{
+    border-right: #D4DEE6 solid 2px;
+    border-left: #D4DEE6 solid 2px;
+    border-bottom: #D4DEE6 solid 2px;
+}
+
+.editor-container{
+    flex: 1;
+    text-align: center;
+}
+
+.editor-results-container{
+    flex: 1;
+    text-align: center;
+}
+
+.editor-results-container{
+    padding: 0.6rem;
+    color: #587695;
+    background-color: white;
+    font-size: 1.15rem;
+}

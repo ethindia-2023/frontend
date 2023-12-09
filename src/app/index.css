@@ -1,0 +1,7 @@
+.app {
+  text-align: center;
+  background-color: #f6f8fd;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+}

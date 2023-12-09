@@ -1,6 +1,7 @@
 import "./index.css";
 import React, { useEffect, useState } from "react";
 import { SafeAuthPack, SafeAuthInitOptions } from "@safe-global/auth-kit";
+import Button from "app/components/Button";
 
 interface AuthKitSignInData {
   eoa: string;
@@ -37,10 +38,19 @@ const Login: React.FC = () => {
     }
     console.log(authKitSignData);
   };
-
   return (
     <>
-      <button onClick={login}>Login</button>
+      <div className="login-card">
+        <div className="signin-image">
+          <figure>
+            <img src="images/signin-image.jpg" alt="logo" />
+          </figure>
+        </div>
+        <div>
+          <p className="signup-image-link">Welcome to Cypher Sight</p>
+          <Button className="login-btn" onClick={login} label="Login" />
+        </div>{" "}
+      </div>
     </>
   );
 };

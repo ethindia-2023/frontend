@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { FaRegUser } from "react-icons/fa";
 import "./index.css";
 
 export type DataCardProps = {

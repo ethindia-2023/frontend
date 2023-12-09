@@ -1,41 +1,7 @@
 .app {
-    text-align: center;
-    background-color: #F6F8FD;
-    margin: 0;
-    display: flex;
-}
-
-.app-content {
-    display: flex;
-    flex: 1;
-    flex-flow: row nowrap;
-    gap: 1rem;
-    padding: 2rem;
-}
-
-.app-left-pane {
-    flex: 1.5;
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 1rem;
-}
-
-.app-right-pane {
-    flex: 1;
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 1rem;
-}
-
-.data-card-container{
-    text-align: start;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-}
-
-.day-analytic-card-container{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+  text-align: center;
+  background-color: #f6f8fd;
+  margin: 0;
+  display: flex;
+  height: 100vh;
 }

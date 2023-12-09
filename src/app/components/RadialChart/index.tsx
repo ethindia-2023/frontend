@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactApexChart from "react-apexcharts";
 import "./index.css";
 import { ApexOptions } from "apexcharts";
@@ -19,9 +19,9 @@ const RadialCharts: React.FC<RadialChartsProps> = (
     (value[2] / sum) * 100,
   ];
   const chartSeries: ApexNonAxisChartSeries = [
-    percentage[0],
-    percentage[1],
-    percentage[2],
+    parseFloat(percentage[0].toFixed(2)),
+    parseFloat(percentage[1].toFixed(2)),
+    parseFloat(percentage[2].toFixed(2)),
   ];
   const chartOptions: ApexOptions = {
     chart: {

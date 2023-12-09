@@ -1,0 +1,20 @@
+.graph-form {
+  width: 30rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+}
+
+.graph-form-dropdown {
+  cursor: pointer;
+}
+
+.graph-form-dropdown .Dropdown-control {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.graph-form-dropdown .Dropdown-arrow {
+  top: 50%;
+  translate: -50% -50%;
+}

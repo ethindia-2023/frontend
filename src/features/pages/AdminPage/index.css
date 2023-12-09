@@ -1,0 +1,64 @@
+.list-card {
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 1.5rem;
+  display: grid;
+  background-color: white;
+}
+.list-header {
+  align-items: center;
+  color: #999ca5;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Match the number of columns with the list */
+  background-color: #f2f2f2; /* Add a background color for header */
+  font-weight: bold;
+}
+.add-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+}
+.add-user input {
+  flex: 1;
+  padding: 8px;
+  margin-right: 8px;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+
+.add-user button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.select-role {
+  background-color: #fff;
+  border: 1px solid #eaecf3;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 0.25rem;
+}
+.admin-dash {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 1rem;
+  width: 100%;
+}
+
+.list-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid #eee; /* Add a border between list items */
+}

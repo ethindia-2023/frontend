@@ -1,12 +1,10 @@
-.app-btn{
-    background: linear-gradient(to bottom, #a63aff 0%, #8d34fe 100%);
-    border-radius: 0.5rem;
-    color: white;
-    font-size: 1.25rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    border: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+.app-btn {
+  background: linear-gradient(to bottom, #a63aff 0%, #8d34fe 100%);
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.25rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }

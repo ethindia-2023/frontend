@@ -29,7 +29,7 @@ const AppBar: React.FC<AppBarProps> = (props: AppBarProps) => {
             <div
               className="app-bar-content-wrapper"
               style={
-                index == selectedIndex
+                index === selectedIndex
                   ? { borderLeft: "0.35rem solid #573BFF" }
                   : {}
               }
@@ -38,7 +38,7 @@ const AppBar: React.FC<AppBarProps> = (props: AppBarProps) => {
               <div
                 className="app-bar-content-item"
                 style={
-                  index == selectedIndex
+                  index === selectedIndex
                     ? { backgroundColor: "#573BFF", color: "white" }
                     : {}
                 }

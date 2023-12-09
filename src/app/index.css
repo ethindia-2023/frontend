@@ -1,14 +1,14 @@
 .app {
-    text-align: center;
-    background-color: #F6F8FD;
-    margin: 0;
-    display: flex;
+  text-align: center;
+  background-color: #f6f8fd;
+  margin: 0;
+  display: flex;
 }
 
 .app-content {
-    display: flex;
-    flex: 1;
-    flex-flow: row nowrap;
-    gap: 1rem;
-    padding: 2rem;
+  display: flex;
+  flex: 1;
+  flex-flow: row nowrap;
+  gap: 1rem;
+  padding: 2rem;
 }

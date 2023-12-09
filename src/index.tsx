@@ -4,13 +4,13 @@ import "./index.css";
 import App from "app";
 import reportWebVitals from "./reportWebVitals";
 const roles: string[] = [
-  'Admin',
-  'Developer',
-  'Tester',
-  'Product Manager',
-  'Designer',
-  'Marketing Manager',
-  'Sales Manager',
+  "Admin",
+  "Developer",
+  "Tester",
+  "Product Manager",
+  "Designer",
+  "Marketing Manager",
+  "Sales Manager",
 ];
 
 const root = ReactDOM.createRoot(

@@ -4,23 +4,23 @@
   grid-template-columns: 1fr 1fr 1fr; /* Match the number of columns with the list */
   align-items: center;
   padding: 1rem;
-  border-bottom: 0.125rem solid #EAECF3;
+  border-bottom: 0.125rem solid #eaecf3;
   font-weight: 700;
 }
 
-  .edit-btn{
-    background-color: #fff;
-    border: 1px solid #EAECF3;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    width:4rem;
-    margin:auto;
-    border: none;
+.edit-btn {
+  background-color: #fff;
+  border: 1px solid #eaecf3;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 4rem;
+  margin: auto;
+  border: none;
 }
-.role{
-    padding: 0.5rem;
-    border-radius: 1.05rem;
+.role {
+  padding: 0.5rem;
+  border-radius: 1.05rem;
 }

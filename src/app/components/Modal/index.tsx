@@ -45,8 +45,9 @@ const Modal: React.FC<ModalProps> = (props: ModalProps) => {
   const handleCloseModal = () => {
     if (onClose) {
       onClose();
+    } else {
+      setModalOpen(false);
     }
-    setModalOpen(false);
   };
 
   return (

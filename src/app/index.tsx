@@ -1,4 +1,3 @@
-import "./index.css";
 import AppBar, { AppBarProps } from "app/components/AppBar";
 import { MdHome } from "react-icons/md";
 import { FaWallet } from "react-icons/fa";
@@ -35,11 +34,7 @@ const App: React.FC = () => {
   };
   return (
     <div className="app">
-      <AppBar {...appBarProps} />
-      <div className="app-content">
-        {/* <AdminDash rolesArray={roles} /> */}
-        <RouterProvider router={AppRouter} />
-      </div>
+      <RouterProvider router={AppRouter} />
     </div>
   );
 };

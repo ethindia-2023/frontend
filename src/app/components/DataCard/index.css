@@ -1,0 +1,35 @@
+.value{
+    font-size: 2rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+.change{
+    color:#595882;
+    font-size: 1.25rem;
+}
+.prop-name{
+    color:#595882;
+    font-size: 1.25rem;
+}
+.icon-block{
+    width:4.25rem;
+    height: 4.25rem;
+    padding: auto;
+    margin-bottom: 1.75rem;
+    background-color: rgba(146, 204, 243, 0.3); ;
+    display: inline-flex;
+}
+.data-card{
+    margin: 1rem;
+    width: 9rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    font-weight: 450;
+}
+.border-round{
+    border-radius: 0.75rem;
+}
+.icon{
+    margin: auto;
+}

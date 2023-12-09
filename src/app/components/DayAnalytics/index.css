@@ -1,0 +1,23 @@
+.day-card{
+    width: fit-content;
+    margin: 1rem;
+    display:flex;
+    padding-right: 1.5rem;
+padding-left: 1.5rem;
+    flex-direction: row;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+.day-data{
+    height:inherit;
+    display:flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: 450;
+
+}
+.day-name{
+    color:#595882;
+    margin: auto;
+}

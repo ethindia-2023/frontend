@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 import Button from "../../../app/components/Button";
 import ProjectCard from "../../../app/components/ProjectCard";
+import ProjectForm, {
+  ProjectFormData,
+  ProjectFormProps,
+} from "../../../app/components/ProjectForm";
 import {
   FaFacebook,
   FaTwitter,
@@ -13,12 +17,18 @@ import {
   FaTumblr,
   FaReddit,
 } from "react-icons/fa";
-
+import { AiOutlineFileAdd } from "react-icons/ai";
+import Modal from "../../../app/components/Modal";
 const LandingPage: React.FC = () => {
   const cardData = Array.from({ length: 9 }, (_, index) => ({
     projName: `Project ${index + 1}`,
     description: `Description ${index + 1}`,
   }));
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+
+  const onModelClose = () => {
+    setModalOpen(false);
+  };
 
   const icons = [
     { icon: <FaFacebook />, color: "#4267B2" },
@@ -41,10 +51,22 @@ const LandingPage: React.FC = () => {
       color={icons[index].color}
     />
   ));
-
   return (
     <div className="proj-page">
-      <Button className="add-proj-btn" label="Add Project" />
+      <Modal
+        children={<ProjectForm />}
+        isOpen={modalOpen}
+        modalDescription=""
+        modalTitle="Create new Project"
+        modalIcon={<AiOutlineFileAdd />}
+        onClose={onModelClose}
+        hasCloseBtn={true}
+      />
+      <Button
+        className="add-proj-btn"
+        label="Add Project"
+        onClick={() => setModalOpen(true)}
+      />
       <div className="projects">{cards}</div>
     </div>
   );

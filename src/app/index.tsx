@@ -6,6 +6,7 @@ import Dashboard from "../features/pages/Dashboard";
 import AdminDash from "../features/pages/AdminPage";
 import { RouterProvider } from "react-router-dom";
 import AppRouter from "./routes";
+import LandingPage from "features/pages/LandingPage";
 const App: React.FC = () => {
   const roles = [
     "Admin",

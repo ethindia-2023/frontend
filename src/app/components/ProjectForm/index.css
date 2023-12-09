@@ -1,0 +1,40 @@
+.project-form {
+  width: 30rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+}
+
+.project-form input {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.project-form .Button {
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #4caf50; /* Green background color */
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.project-form .Button:hover {
+  background-color: #45a049; /* Dark green */
+}
+
+.project-form .error {
+  color: red;
+  margin-top: 0.5rem;
+}
+
+/* If you want to style the error differently, you can use a specific class on the Button element when there's an error */
+.project-form .error .Button {
+  background-color: red;
+}

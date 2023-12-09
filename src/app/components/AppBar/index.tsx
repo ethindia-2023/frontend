@@ -1,5 +1,6 @@
 import { ReactNode, useState } from "react";
 import { HiMiniBars3BottomLeft } from "react-icons/hi2";
+import logo from "../../../assets/download.png";
 import "./index.css";
 
 export type AppBarItem = {
@@ -22,7 +23,7 @@ const AppBar: React.FC<AppBarProps> = (props: AppBarProps) => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <div className="app-bar-icon">{<HiMiniBars3BottomLeft />}</div>
+      <div className="app-bar-icon">{<img src={logo} height={35} />}</div>
       <div className="app-bar-content">
         {items.map((item: AppBarItem, index: number) => {
           return (

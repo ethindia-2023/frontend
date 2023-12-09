@@ -193,7 +193,7 @@ const Dashboard: React.FC = () => {
               Create Custom Graph
             </div>
             <div className="custom-graph-section-description">
-              create custom graph from the data emitted from your contract
+              Create custom graph from the data emitted from your contract
               transactions, it can help you visualize different parameters and
               trends for your customized use case
             </div>

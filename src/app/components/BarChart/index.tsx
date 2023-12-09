@@ -20,8 +20,8 @@ const BarChart: React.FC<BarChartProps> = (props: BarChartProps) => {
     width,
     onMarkerClick,
     markerRadius,
-    strokeWidth,
-    strokeColors,
+    // strokeWidth,
+    // strokeColors,
   } = props;
   const apexOptions: ApexOptions = {
     chart: {

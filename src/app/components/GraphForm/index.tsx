@@ -23,7 +23,7 @@ const GraphForm: React.FC<GraphFormProps> = (props: GraphFormProps) => {
 
   const graphSubmitHandler = () => {
     if (
-      formData == undefined ||
+      formData === undefined ||
       formData.field === undefined ||
       formData.graphOption === undefined
     ) {

@@ -3,15 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "app";
 import reportWebVitals from "./reportWebVitals";
-const roles: string[] = [
-  "Admin",
-  "Developer",
-  "Tester",
-  "Product Manager",
-  "Designer",
-  "Marketing Manager",
-  "Sales Manager",
-];
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

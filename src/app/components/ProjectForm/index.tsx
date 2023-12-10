@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Button from "app/components/Button";
 import "./index.css";
 export type ProjectFormProps = {
@@ -19,7 +19,19 @@ const ProjectForm: React.FC<ProjectFormProps> = (props: ProjectFormProps) => {
   const { onSubmit } = props;
   const [error, setError] = useState<string | null>(null);
 
+  const nameRef = useRef<HTMLInputElement>(null);
+  const descriptionRef = useRef<HTMLInputElement>(null);
+
   const projectSubmitHandler = () => {
+    if (nameRef.current && nameRef.current.value !== "") {
+      formData.projName = nameRef.current.value;
+      nameRef.current.value = "";
+    }
+    if (descriptionRef.current && descriptionRef.current.value !== "") {
+      formData.description = descriptionRef.current.value;
+      descriptionRef.current.value = "";
+    }
+
     if (
       formData === undefined ||
       formData.projName === undefined ||
@@ -37,19 +49,19 @@ const ProjectForm: React.FC<ProjectFormProps> = (props: ProjectFormProps) => {
   return (
     <div className="project-form">
       <input
+        ref={nameRef}
         type="text"
         placeholder="Project Name"
         onChange={(e) => {
           setError(null);
-          formData.projName = e.target.value;
         }}
       />
       <input
+        ref={descriptionRef}
         type="text"
         placeholder="Project Description"
         onChange={(e) => {
           setError(null);
-          formData.description = e.target.value;
         }}
       />
       <Button

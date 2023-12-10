@@ -38,7 +38,7 @@ const Dashboard: React.FC = () => {
   ]);
   useEffect(() => {
     axios.get("http://127.0.0.1:3000/total24value").then((res) => {
-      console.log(res.data)
+      console.log(res.data);
       const total = res.data.result.totalGas + 1.1 * res.data.result.total;
       setBarDataList([
         {
@@ -181,12 +181,12 @@ const Dashboard: React.FC = () => {
     dataFields: ["Gas fees", "Transactions", "Count"],
     graphOptions: ["Bar Chart", "Spline Chart", "Line Chart"],
     onSubmit: (formData: GraphFormData) => {
-      console.log("after submitting", JSON.stringify(formData));
       navigate("/custom-graph", {
         state: {
           data: formData,
         },
       });
+      setModalOpen(false);
     },
   };
 

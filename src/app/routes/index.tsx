@@ -27,9 +27,9 @@ const AppRouter = createBrowserRouter(
     <Route>
       <Route index element={<LandingPage />} />
       <Route path="/" element={<RootLayout />} errorElement={<ErrorLayout />}>
+        <Route path="login" element={<Login />} />
         <Route errorElement={<ErrorLayout />}>
           <Route path="admin" element={<AdminDash rolesArray={roles} />} />
-          <Route path="login" element={<Login />} />
           <Route path="custom-graph" element={<GraphPage />} />
           <Route path="editor" element={<EditorPage />} />
           <Route path="dashboard" element={<Dashboard />} />

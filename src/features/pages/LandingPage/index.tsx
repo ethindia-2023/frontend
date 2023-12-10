@@ -79,6 +79,7 @@ const LandingPage: React.FC = () => {
   const addProject = async (formData: ProjectFormData) => {
     setLoading(true);
     const address = await deployContract(walletProvider as Eip1193Provider);
+    setModalOpen(false);
     if (address) {
       const newCardData = [
         {
@@ -89,7 +90,7 @@ const LandingPage: React.FC = () => {
           projectId: address,
         },
       ];
-      setCardData(newCardData);
+      setCardData([...newCardData, ...cardData]);
       const projects = JSON.parse(localStorage.getItem("projects") || "[]");
       localStorage.setItem(
         "projects",
@@ -97,7 +98,6 @@ const LandingPage: React.FC = () => {
       );
     }
     setLoading(false);
-    setModalOpen(false);
   };
 
   const getRandomInteger = () => {
@@ -117,7 +117,7 @@ const LandingPage: React.FC = () => {
         key={index}
         projName={card.name}
         description={card.description}
-        icon={icons[getRandomInteger()].icon}
+        icon={icons[index as number].icon}
         color={card.color}
         onDelete={() => deleteProject(index as number)}
       />
@@ -127,7 +127,7 @@ const LandingPage: React.FC = () => {
   return (
     <div className="proj-page">
       <Modal
-        children={<ProjectForm onSubmit={addProject} />}
+        children={<ProjectForm onSubmit={addProject} isLoading={loading} />}
         isOpen={modalOpen}
         modalDescription=""
         modalTitle="Create new Project"

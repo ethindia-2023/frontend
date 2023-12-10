@@ -3,6 +3,7 @@ import Button from "app/components/Button";
 import "./index.css";
 export type ProjectFormProps = {
   onSubmit?: (formData: ProjectFormData) => void;
+  isLoading?: boolean;
 };
 
 export type ProjectFormData = {
@@ -16,7 +17,7 @@ let formData: ProjectFormData = {
 };
 
 const ProjectForm: React.FC<ProjectFormProps> = (props: ProjectFormProps) => {
-  const { onSubmit } = props;
+  const { onSubmit, isLoading } = props;
   const [error, setError] = useState<string | null>(null);
 
   const nameRef = useRef<HTMLInputElement>(null);
@@ -25,11 +26,9 @@ const ProjectForm: React.FC<ProjectFormProps> = (props: ProjectFormProps) => {
   const projectSubmitHandler = () => {
     if (nameRef.current && nameRef.current.value !== "") {
       formData.projName = nameRef.current.value;
-      nameRef.current.value = "";
     }
     if (descriptionRef.current && descriptionRef.current.value !== "") {
       formData.description = descriptionRef.current.value;
-      descriptionRef.current.value = "";
     }
 
     if (
@@ -65,7 +64,7 @@ const ProjectForm: React.FC<ProjectFormProps> = (props: ProjectFormProps) => {
         }}
       />
       <Button
-        label={error != null ? error : "Create Project"}
+        label={error != null ? error : isLoading ? "Loading" : "Create Project"}
         buttonStyle={error != null ? { background: "red" } : undefined}
         onClick={projectSubmitHandler}
       />

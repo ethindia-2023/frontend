@@ -29,8 +29,6 @@ const Modal: React.FC<ModalProps> = (props: ModalProps) => {
   useEffect(() => {
     if (isOpen) {
       setModalOpen(true);
-    } else {
-      setModalOpen(false);
     }
   }, [isOpen]);
 

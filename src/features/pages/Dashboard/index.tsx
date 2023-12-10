@@ -38,24 +38,25 @@ const Dashboard: React.FC = () => {
   ]);
   useEffect(() => {
     axios.get("http://127.0.0.1:3000/total24value").then((res) => {
-      const total = res.data[0].totalGas + 1.1 * res.data[0].total;
+      console.log(res.data)
+      const total = res.data.result.totalGas + 1.1 * res.data.result.total;
       setBarDataList([
         {
           label: "Total Gas",
           valuePercentage: parseFloat(
-            ((res.data[0].totalGas / total) * 100).toPrecision(1)
+            ((res.data.result.totalGas / total) * 100).toPrecision(1)
           ),
         },
         {
           label: "Total Tokens",
           valuePercentage: parseFloat(
-            ((res.data[0].total / total) * 100).toPrecision(1)
+            ((res.data.result.total / total) * 100).toPrecision(1)
           ),
         },
         {
           label: "Total Revenue",
           valuePercentage: parseFloat(
-            (((0.1 * res.data[0].total) / total) * 100).toPrecision(1)
+            (((0.1 * res.data.result.total) / total) * 100).toPrecision(1)
           ),
         },
       ]);

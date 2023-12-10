@@ -23,6 +23,22 @@ const mantleTest = {
   rpcUrl: "https://rpc.testnet.mantle.xyz",
 };
 
+const arbitrum = {
+  chainId: 42161,
+  name: "Arbitrum",
+  currency: "ETH",
+  explorerUrl: "https://arbiscan.io",
+  rpcUrl: "https://arb1.arbitrum.io/rpc",
+};
+
+const celo = {
+  chainId: 42220,
+  name: "Celo",
+  currency: "CELO",
+  explorerUrl: "https://explorer.celo.org",
+  rpcUrl: "https://forno.celo.org",
+};
+
 // 3. Create modal
 const metadata = {
   name: "Cypher Sight",
@@ -33,7 +49,7 @@ const metadata = {
 
 createWeb3Modal({
   ethersConfig: defaultConfig({ metadata }),
-  chains: [sepoliaScroll, mantleTest],
+  chains: [sepoliaScroll, mantleTest, arbitrum, celo],
   projectId,
 });
 const root = ReactDOM.createRoot(

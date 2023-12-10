@@ -36,6 +36,7 @@ const Dashboard: React.FC = () => {
       valuePercentage: 0,
     },
   ]);
+  const [dau, setDau] = useState<number>(0);
   useEffect(() => {
     axios.get("http://127.0.0.1:3000/total24value").then((res) => {
       console.log(res.data);
@@ -61,7 +62,13 @@ const Dashboard: React.FC = () => {
         },
       ]);
     });
+
+    axios.get("http://127.0.0.1:3000/activevisitors/dau").then((res) => {
+      console.log(res.data);
+      setDau(res.data.result);
+    });
   }, []);
+
   const barInfoCardProps: BarInfoCardProps = {
     title: "Daily Volume at a Glance",
     labelName: "Metric",
@@ -109,16 +116,16 @@ const Dashboard: React.FC = () => {
   const datCardPropsList: DataCardProps[] = [
     {
       property: "Users",
-      value: "72.6k",
-      change: 25,
+      value: dau.toFixed(0),
+      change: 100,
       icon: <LuUsers />,
       iconBackgroundColor: "#EAF1FE",
       iconColor: "#3C79FE",
     },
     {
       property: "Sessions",
-      value: "87.2k",
-      change: 28,
+      value: dau.toFixed(0),
+      change: 50,
       icon: <TbCloudDataConnection />,
       iconBackgroundColor: "#FEF1EC",
       iconColor: "#F26E4C",
@@ -144,8 +151,8 @@ const Dashboard: React.FC = () => {
   const dayAnalysisPropsList: DayAnalyticsProps[] = [
     {
       label: "Users",
-      today: 5461,
-      expected: 8085,
+      today: dau,
+      expected: 5 * dau,
       color: "#553AFF",
     },
     {

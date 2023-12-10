@@ -98,6 +98,7 @@ const LandingPage: React.FC = () => {
       );
     }
     setLoading(false);
+    setModalOpen(false);
   };
 
   const getRandomInteger = () => {

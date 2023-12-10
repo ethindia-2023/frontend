@@ -21,6 +21,7 @@
 .app-bar-content-wrapper {
   padding: 0 1rem;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .app-bar-icon {

@@ -1,7 +1,7 @@
 import AppBar, { AppBarProps } from "app/components/AppBar";
-import { FaWallet } from "react-icons/fa";
 import { MdHome } from "react-icons/md";
-import { RiDatabase2Line } from "react-icons/ri";
+import { IoTerminal } from "react-icons/io5";
+import { RiAdminFill } from "react-icons/ri";
 import { Outlet } from "react-router-dom";
 import "./index.css";
 
@@ -10,15 +10,18 @@ const RootLayout: React.FC = () => {
     items: [
       {
         icon: <MdHome />,
-        label: "Home",
+        label: "Dashboard",
+        href: "/dashboard",
       },
       {
-        icon: <FaWallet />,
-        label: "Wallet",
+        icon: <RiAdminFill />,
+        label: "Admin",
+        href: "/admin",
       },
       {
-        icon: <RiDatabase2Line />,
-        label: "Database",
+        icon: <IoTerminal />,
+        label: "code editor",
+        href: "/editor",
       },
     ],
   };

@@ -1,10 +1,12 @@
 import { ReactNode, useState } from "react";
 import logo from "../../../assets/download.png";
 import "./index.css";
+import { Link } from "react-router-dom";
 
 export type AppBarItem = {
   label: string;
   icon: ReactNode;
+  href: string;
 };
 
 export type AppBarProps = {
@@ -23,12 +25,17 @@ const AppBar: React.FC<AppBarProps> = (props: AppBarProps) => {
       onMouseLeave={() => setHover(false)}
     >
       <div className="app-bar-icon">
-        {<img alt="logo" src={logo} height={35} />}
+        {
+          <Link to="/">
+            <img alt="logo" src={logo} height={35} />
+          </Link>
+        }
       </div>
       <div className="app-bar-content">
         {items.map((item: AppBarItem, index: number) => {
           return (
-            <div
+            <Link
+              to={item.href}
               className="app-bar-content-wrapper"
               style={
                 index === selectedIndex
@@ -54,7 +61,7 @@ const AppBar: React.FC<AppBarProps> = (props: AppBarProps) => {
                   {item.label}
                 </p>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

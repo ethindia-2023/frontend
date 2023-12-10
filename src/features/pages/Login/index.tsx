@@ -1,54 +1,34 @@
 import "./index.css";
+import {
+  useWeb3ModalProvider,
+  useWeb3ModalAccount,
+} from "@web3modal/ethers/react";
 import React, { useEffect, useState } from "react";
-import { SafeAuthPack, SafeAuthInitOptions } from "@safe-global/auth-kit";
-import Button from "app/components/Button";
-
-interface AuthKitSignInData {
-  eoa: string;
-  safes?: string[];
-}
+import logo from "assets/download.png";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
-  const [safeAuthPack, setSafeAuthPack] = useState<SafeAuthPack | null>(null);
-  const [, setAuthKitSignData] = useState<AuthKitSignInData | null>(null);
-
-  const initialize = async () => {
-    const safeAuthInitOptions: SafeAuthInitOptions = {
-      enableLogging: true,
-      showWidgetButton: false,
-      chainConfig: {
-        chainId: "0x64",
-        rpcTarget: "https://gnosis.drpc.org",
-      },
-    };
-
-    const safeAuthPack = new SafeAuthPack();
-    await safeAuthPack.init(safeAuthInitOptions);
-    setSafeAuthPack(safeAuthPack);
-  };
+  const { address, chainId, isConnected } = useWeb3ModalAccount();
+  const { walletProvider } = useWeb3ModalProvider();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    initialize();
-  });
-
-  const login = async () => {
-    const authKitSignData = await safeAuthPack!.signIn();
-    if (authKitSignData !== null) {
-      setAuthKitSignData(authKitSignData);
+    if (isConnected) {
+      navigate("/");
     }
-    console.log(authKitSignData);
-  };
+  }, [isConnected]);
+
   return (
     <>
       <div className="login-card">
         <div className="signin-image">
           <figure>
-            <img src="images/signin-image.jpg" alt="logo" />
+            <img src={logo} alt="logo" height={50} />
           </figure>
         </div>
         <div>
           <p className="signup-image-link">Welcome to Cypher Sight</p>
-          <Button className="login-btn" onClick={login} label="Login" />
+          <w3m-button />
         </div>{" "}
       </div>
     </>
